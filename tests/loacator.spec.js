@@ -68,6 +68,6 @@ test('TC-2 Checkout Some Items', async ({ page }) => {
 
     // baack to home page
     const backToHome = page.locator ('#back-to-products');
-    await backToHome.click({timeout: 30000 });
+    await backToHome.click();
 
 });
