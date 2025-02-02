@@ -22,6 +22,7 @@ test('TC-2 Checkout Some Items', async ({ page }) => {
     test.slow();
     await page.goto('https://www.saucedemo.com/',{timeout: 30000 });
   
+    // login page
     const inputUname = page.locator('#user-name');
     await inputUname.fill ('standard_user',{timeout: 30000});
     await expect(inputUname).toHaveValue('standard_user');
@@ -32,7 +33,8 @@ test('TC-2 Checkout Some Items', async ({ page }) => {
   
     const buttonLogin = page.locator('#login-button');
     await buttonLogin.click({timeout: 30000 });
-
+    
+    // add item into cart
     const firstItem = page.locator('#add-to-cart-sauce-labs-bike-light');
     await firstItem.click({timeout: 30000 });
     
@@ -45,6 +47,7 @@ test('TC-2 Checkout Some Items', async ({ page }) => {
     const checkoutItem = page.locator ('#checkout');
     await checkoutItem.click({timeout: 30000 });
 
+    //identity needed for checkout items
     const firstName = page.locator('#first-name');
     await firstName.fill('Helda',{timeout: 30000 });
     await expect(firstName).toHaveValue('Helda');
@@ -63,6 +66,7 @@ test('TC-2 Checkout Some Items', async ({ page }) => {
     const finishButton = page.locator ('#finish');
     await finishButton.click({timeout: 30000 });
 
+    // baack to home page
     const backToHome = page.locator ('#back-to-products');
     await backToHome.click({timeout: 30000 });
 
